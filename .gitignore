@@ -1,0 +1,26 @@
+# Virtual Environment
+venv/
+backend/venv/
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# Node
+node_modules/
+dist/
+build/

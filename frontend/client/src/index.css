@@ -1,0 +1,492 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
+
+:root {
+  /* Deep Blue Corporate Palette */
+  --primary: #002f6c;
+  --primary-foreground: #ffffff;
+  --primary-light: #0066cc;
+  --primary-dark: #001a3d;
+  
+  --sidebar-primary: #002f6c;
+  --sidebar-primary-foreground: #ffffff;
+  
+  --chart-1: #0066cc;
+  --chart-2: #002f6c;
+  --chart-3: #004da6;
+  --chart-4: #003d85;
+  --chart-5: #001a3d;
+  
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #f5f7fa;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --secondary: #f5f7fa;
+  --secondary-foreground: #002f6c;
+  --muted: #e8ecf1;
+  --muted-foreground: #666666;
+  --accent: #0066cc;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #f5f7fa;
+  --ring: #0066cc;
+  --sidebar: #f5f7fa;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-accent: #002f6c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: #0066cc;
+  
+  /* Success and Warning Colors */
+  --success: #10b981;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+}
+
+.dark {
+  /* Dark mode not used for this light professional design */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium border border-border hover:bg-muted transition-colors duration-200;
+  }
+  
+  .card-elevated {
+    @apply bg-card text-card-foreground rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-200;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-8;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-input text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200;
+  }
+  
+  .badge-paid {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-success text-success-foreground;
+  }
+  
+  .badge-pending {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-warning text-warning-foreground;
+  }
+  
+  .badge-error {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-destructive text-destructive-foreground;
+  }
+}
+
+
+/* Performance Optimizations */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize images for better performance */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for smooth animations */
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Optimize scrolling performance */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce blur filter performance impact */
+@supports (backdrop-filter: blur(1px)) {
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Optimize button interactions */
+button,
+[role="button"],
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent layout shift */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Print Styles for PDF Generation */
+@media print {
+  /* Hide UI elements that shouldn't appear in print */
+  body.printing-report header,
+  body.printing-report footer,
+  body.printing-report button,
+  body.printing-report .lightbox,
+  body.printing-report .modal,
+  body.printing-report .toast,
+  body.printing-report [data-sonner-toast],
+  body.printing-report button[onclick*="handleSaveReport"],
+  body.printing-report button[onclick*="handleShareReport"] {
+    display: none !important;
+  }
+
+  /* Ensure Image Gallery section is visible */
+  body.printing-report .image-gallery,
+  body.printing-report .gallery-container,
+  body.printing-report [class*="gallery"],
+  body.printing-report [class*="image"],
+  body.printing-report section[id*="gallery"],
+  body.printing-report div[id*="gallery"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Disable all transitions and animations on gallery */
+  body.printing-report .image-gallery *,
+  body.printing-report .gallery-container *,
+  body.printing-report [class*="gallery"] *,
+  body.printing-report [class*="image"] * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  /* Ensure all images in gallery are visible and properly sized */
+  body.printing-report .image-gallery img,
+  body.printing-report .gallery-container img,
+  body.printing-report [class*="gallery"] img,
+  body.printing-report [class*="image"] img,
+  body.printing-report img[alt*="car"],
+  body.printing-report img[alt*="Car"],
+  body.printing-report img[src*="car"],
+  body.printing-report img[src*="vehicle"],
+  body.printing-report section img,
+  body.printing-report div[id*="gallery"] img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 50px !important;
+    margin: 8px !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* Ensure main content is visible and properly formatted */
+  body.printing-report main {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: white !important;
+  }
+
+  /* Format report sections for A4 printing */
+  body.printing-report .bg-white {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+    margin-bottom: 16px !important;
+    page-break-inside: avoid;
+  }
+
+  body.printing-report section {
+    page-break-inside: avoid;
+    margin-bottom: 20px !important;
+  }
+
+  body.printing-report h2 {
+    color: #1e293b !important;
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+    page-break-after: avoid;
+  }
+
+  body.printing-report .text-sm,
+  body.printing-report .text-xs {
+    color: #64748b !important;
+  }
+
+  body.printing-report table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 16px !important;
+  }
+
+  body.printing-report th,
+  body.printing-report td {
+    border: 1px solid #e5e7eb !important;
+    padding: 8px !important;
+    text-align: right !important;
+  }
+
+  body.printing-report th {
+    background: #f8fafc !important;
+    font-weight: 600 !important;
+  }
+
+  /* Ensure charts and ratings are visible */
+  body.printing-report svg,
+  body.printing-report .rating-gauge,
+  body.printing-report .progress-bar {
+    display: block !important;
+    color: #1e293b !important;
+  }
+
+  /* Force icons to be white for visibility on dark backgrounds */
+  body.printing-report svg,
+  body.printing-report .lucide,
+  body.printing-report [class*="icon"],
+  body.printing-report .icon,
+  body.printing-report i,
+  body.printing-report .fa,
+  body.printing-report .fas,
+  body.printing-report .far,
+  body.printing-report .fab,
+  body.printing-report .material-icons,
+  body.printing-report [data-icon],
+  body.printing-report .text-white svg,
+  body.printing-report .text-white .lucide,
+  body.printing-report .text-white [class*="icon"] {
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+  }
+
+  /* Specific targeting for icons within dark containers */
+  body.printing-report .text-white {
+    color: white !important;
+  }
+
+  body.printing-report .text-white * {
+    color: white !important;
+  }
+
+  body.printing-report .text-white svg {
+    fill: white !important;
+    stroke: white !important;
+  }
+
+  /* Additional targeting for gradient backgrounds */
+  body.printing-report [class*="gradient"] svg,
+  body.printing-report [class*="blue"] svg {
+    fill: white !important;
+    stroke: white !important;
+    color: white !important;
+  }
+
+  /* Remove animations and transitions */
+  body.printing-report * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* A4 page setup */
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+}
+
+/* Custom Scrollbar Utility */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Ensure the scrollbar is always visible when content overflows */
+.custom-scrollbar {
+  overflow-y: auto;
+}

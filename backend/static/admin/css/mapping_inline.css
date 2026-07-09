@@ -1,0 +1,24 @@
+
+/* ─── تنسيق جدول تعيين الحقول ─── */
+.field-mapping-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.field-mapping-table th {
+    background: #417690; color: #fff;
+    padding: 8px 12px; text-align: right; font-size: 13px;
+}
+.field-mapping-table td { padding: 6px 8px; border-bottom: 1px solid #e0e0e0; }
+.field-mapping-table tr:hover td { background: #f9f9f9; }
+.field-mapping-table input[type=text] {
+    width: 100%; border: 1px solid #ccc; padding: 5px 8px;
+    border-radius: 4px; font-family: monospace; direction: ltr;
+}
+.field-mapping-table select {
+    width: 100%; border: 1px solid #ccc; padding: 5px 8px;
+    border-radius: 4px;
+}
+.field-mapping-table input[type=checkbox] { margin: auto; }
+.add-mapping-row-btn {
+    margin-top: 8px; padding: 6px 16px;
+    background: #28a745; color: #fff; border: none;
+    border-radius: 4px; cursor: pointer; font-size: 13px;
+}
+.add-mapping-row-btn:hover { background: #218838; }

@@ -1,0 +1,23 @@
+/* CSS Fix for Jazzmin Admin Logos */
+
+.login-page .login-logo img, 
+.login-box .login-logo img,
+.login-logo img {
+    width: 300px !important;
+    max-width: 300px !important;
+    height: auto !important;
+    margin: 0 auto 20px auto !important;
+    display: block !important;
+}
+
+.main-sidebar .brand-link img,
+.brand-link img {
+    max-height: 45px !important;
+    width: auto !important;
+    float: none !important;
+}
+
+.brand-link {
+    display: flex !important;
+    align-items: center !important;
+}
