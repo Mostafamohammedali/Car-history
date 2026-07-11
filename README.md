@@ -31,9 +31,12 @@ Performance-Optimized: Backend architecture focused on low-latency query process
 Car History was developed to address real-world logistical and data management challenges, demonstrating technical proficiency in:
 ### Platform Interface
 
-| Dashboard View | Search Results |
+| Report View | home View |
 | :---: | :---: |
-| ![Dashboard](images/dashboard.png) | ![Search](https://github.com/Mostafamohammedali/Car-history/issues/2#issue-4863750724) |
+| ![Report](assets/Report.png.png) | ![home](assets/home.png.png) |
+| login View | aichat View |
+| :---: | :---: |
+| ![login](assets/login.png.png) | ![aichat](assets/aichat.png.png) |
 
 Complex Data Modeling: Managing relational data with strict integrity requirements.
 
