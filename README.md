@@ -33,7 +33,7 @@ Car History was developed to address real-world logistical and data management c
 
 | Dashboard View | Search Results |
 | :---: | :---: |
-| ![Dashboard](images/dashboard.png) | ![Search](images/search-results.png) |
+| ![Dashboard](images/dashboard.png) | ![Search](https://github.com/Mostafamohammedali/Car-history/issues/2#issue-4863750724) |
 
 Complex Data Modeling: Managing relational data with strict integrity requirements.
 
